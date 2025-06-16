@@ -1,4 +1,4 @@
-Welcome to pydra-workers-CHANGEME's documentation!
+Welcome to pydra-workers-oar's documentation!
 ==================================================
 
 .. toctree::

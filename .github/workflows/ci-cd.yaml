@@ -40,7 +40,7 @@ jobs:
     - name: Install task package
       run: |
         pip install ${{ matrix.pip-flags }} ".[dev]"
-        python -c "import pydra.workers.CHANGEME as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+        python -c "import pydra.workers.oar as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
 
   test:
@@ -61,12 +61,12 @@ jobs:
     - name: Install task package
       run: |
         pip install ".[test]"
-        python -c "import pydra.workers.CHANGEME as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+        python -c "import pydra.workers.oar as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
     - name: Test with pytest
       run: |
-        pytest -sv --doctest-modules pydra/workers/CHANGEME \
-            --cov pydra.workers.CHANGEME --cov-report xml
+        pytest -sv --doctest-modules pydra/workers/oar \
+            --cov pydra.workers.oar --cov-report xml
     - uses: codecov/codecov-action@v3
       if: ${{ always() }}
 
