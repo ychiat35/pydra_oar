@@ -67,7 +67,7 @@ jobs:
       run: |
         pip install ".[test]"
         python -c "import pydra.workers.oar as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
-        python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+        python -c "import pydra as m; print(f\"{m.__name__} {getattr(m, '__version__', 'no version')} @ {m.__file__}\")"
     - name: Test with pytest
       run: |
         pytest -sv --doctest-modules pydra/workers/oar \
