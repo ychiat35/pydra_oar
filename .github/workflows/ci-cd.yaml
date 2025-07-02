@@ -40,7 +40,7 @@ jobs:
     - name: Install Pydra
       run: |
         pip install ${{ matrix.pydra }}
-        python -c "import pydra as m; print(f'{m.__name__} {getattr(m, '__version__', 'no version')} @ {m.__file__}')"
+        python -c "import pydra as m; print(f\"{m.__name__} {getattr(m, '__version__', 'no version')} @ {m.__file__}\")"
     - name: Install task package
       run: |
         pip install ${{ matrix.pip-flags }} ".[dev]"
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9, '3.10']
+        python-version: [3.8, 3.9, '3.10']
 
     steps:
     - uses: actions/checkout@v4
