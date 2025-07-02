@@ -40,12 +40,11 @@ jobs:
     - name: Install Pydra
       run: |
         pip install ${{ matrix.pydra }}
-        python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+        python -c "import pydra as m; print(f'{m.__name__} {getattr(m, '__version__', 'no version')} @ {m.__file__}')"
     - name: Install task package
       run: |
         pip install ${{ matrix.pip-flags }} ".[dev]"
         python -c "import pydra.workers.oar as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
-        python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
 
   test:
     runs-on: ubuntu-latest
