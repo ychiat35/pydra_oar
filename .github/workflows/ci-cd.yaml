@@ -70,7 +70,7 @@ jobs:
         python -c "import pydra as m; print(f\"{m.__name__} {getattr(m, '__version__', 'no version')} @ {m.__file__}\")"
     - name: Test with pytest
       run: |
-        pytest -sv --doctest-modules pydra/workers/oar \
+        pytest -sv tests \
             --cov pydra.workers.oar --cov-report xml
     - uses: codecov/codecov-action@v3
       if: ${{ always() }}
