@@ -18,7 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.8', '3.12']  # Check oldest and newest versions
+        # Check only Python >=3.11 (required by pydra>=1.0a)
+        python-version: ['3.11', '3.12']
         pip-flags: ['', '--editable']
         pydra:
         - 'pydra'
@@ -50,7 +51,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8, 3.9, '3.10']
+        # Check only Python >=3.11 (required by pydra>=1.0a)
+        python-version: ['3.11', '3.12']
 
     steps:
     - uses: actions/checkout@v4
@@ -79,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.9]
+        python-version: [3.11]
     steps:
     - uses: actions/checkout@v4
       with:
