@@ -14,5 +14,5 @@ try:
     def pytest_generate_tests(metafunc):
         return pydra_conftest.pytest_generate_tests(metafunc)
 
-except (ImportError, AttributeError):
-    pass
+except (ImportError, AttributeError, ModuleNotFoundError) as e:
+    print(f"Warning: could not import test fixtures from pydra: {e}")
